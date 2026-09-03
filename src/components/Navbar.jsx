@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar() {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <nav>
       <div className="container p-3 border-bottom d-flex justify-content-around align-items-center">
@@ -22,14 +26,23 @@ export default function Navbar() {
         </div>
 
         {/* Auth */}
-        <div className="d-flex gap-2 align-items-center">
-          <Link to="/auth" className="btn btn-sm btn-secondary">
-            Login
-          </Link>
-          <Link to="/auth" className="btn btn-sm btn-primary">
-            Signup
-          </Link>
-        </div>
+        {!user ? (
+          <div className="d-flex gap-2 align-items-center">
+            <Link to="/auth" className="btn btn-sm btn-secondary">
+              Login
+            </Link>
+            <Link to="/auth" className="btn btn-sm btn-primary">
+              Sign Up
+            </Link>
+          </div>
+        ) : (
+          <div
+            onClick={() => logout()}
+            className="d-flex gap-2 align-items-center"
+          >
+            <button className="btn btn-sm btn-primary">Log out</button>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ p }) {
   return (
-    <div className="card" style={{ maxWidth: 16 + "rem", width: 14 + "rem" }}>
+    <div className="card col-6 col-lg-4 col-xl-3">
       <img src={p.image} className="card-img-top" alt="..." />
       <div className="card-body">
         <h3 className="card-title">{p.name}</h3>
