@@ -8,7 +8,7 @@ export default function ProductCard({ p }) {
         <h3 className="card-title">{p.name}</h3>
         <p className="card-text text-primary fw-bold">${p.price}</p>
         <div className="d-flex gap-2 align-items-center">
-          <Link href="#" className="btn btn-sm btn-secondary">
+          <Link to={`/products/${p.id}`} className="btn btn-sm btn-secondary">
             View Details
           </Link>
           <button className="btn btn-sm btn-primary">Add to Cart</button>
